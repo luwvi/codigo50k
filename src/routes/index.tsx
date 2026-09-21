@@ -5,7 +5,7 @@ import stationeryImg from "@/assets/stationery.jpg";
 import brideImg from "@/assets/bride.jpg";
 import glassesImg from "@/assets/glasses.jpg";
 
-const CHECKOUT = "https://pay.kiwify.com.br/2thKP77";
+const CHECKOUT = "https://pay.kiwify.com.br/oLx1YAH";
 
 export const Route = createFileRoute("/")({
   head: () => ({
