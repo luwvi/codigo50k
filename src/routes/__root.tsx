@@ -1,0 +1,176 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+import { type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Página não encontrada</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          A página que você está procurando não existe ou foi movida.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Voltar ao início
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          A página não pôde ser carregada
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Algo deu errado do nosso lado. Tente atualizar ou volte à página inicial.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Tentar novamente
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Voltar ao início
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Código do Casamento | Caroline Frey" },
+      {
+        name: "description",
+        content:
+          "Descubra o Código do Casamento em um encontro on-line ao vivo com Caroline Frey. Aprenda a organizar o seu casamento com muita elegância investindo até 50k.",
+      },
+      {
+        name: "keywords",
+        content: "casamento, casamento luxo, caroline frey, casamento 50k, organizar casamento, noiva, encontro online casamento",
+      },
+      { name: "author", content: "Caroline Frey" },
+      { name: "robots", content: "index, follow" },
+      { name: "google-site-verification", content: "VhcLyGGC2IsaIsDNyXRMB_4x7A6edQ1g8IrDJVARY2M" },
+      { property: "og:title", content: "Código do Casamento | Caroline Frey" },
+      {
+        property: "og:description",
+        content:
+          "Descubra o Código do Casamento em um encontro on-line ao vivo com Caroline Frey. Aprenda a organizar o seu casamento com muita elegância investindo até 50k.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:site_name", content: "Código do Casamento" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Código do Casamento | Caroline Frey" },
+      {
+        name: "twitter:description",
+        content:
+          "Organize seu casamento com elegância e até 50k. Encontro on-line ao vivo com Caroline Frey.",
+      },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap",
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+  }),
+
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        <HeadContent />
+        {/* Facebook Pixel Code */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '1634322461665912');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1634322461665912&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+        {/* End Facebook Pixel Code */}
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+    </QueryClientProvider>
+  );
+}
