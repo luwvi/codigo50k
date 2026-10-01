@@ -153,9 +153,9 @@ function Index() {
             “Eu vou te ensinar a organizar seu casamento de forma elegante e sofisticada com
             até 50k!”
           </p>
-          <CountdownTimer targetDate="2026-09-24T20:00:00-03:00" />
+          <CountdownTimer targetDate="2026-10-22T20:00:00-03:00" />
           <p className="mt-4 text-[0.7rem] uppercase tracking-[0.3em] text-sand sm:text-xs">
-            24 · 09 · 26 &nbsp;—&nbsp; 20h &nbsp;—&nbsp; Ao vivo e on-line
+            22 · 10 · 26 &nbsp;—&nbsp; 20h &nbsp;—&nbsp; Ao vivo e on-line
           </p>
           <Cta className="mt-10 w-full max-w-md">Quero garantir minha vaga</Cta>
           <p className="mt-5 text-[0.7rem] uppercase tracking-[0.25em] text-gold">
@@ -272,7 +272,7 @@ function Index() {
           <h2 className="mt-8 font-serif text-3xl text-ink sm:text-5xl">Detalhes do evento</h2>
           <dl className="mt-12 grid gap-px overflow-hidden rounded-sm bg-gold/25 sm:grid-cols-2">
             {[
-              ["Data", "24 de setembro de 2026"],
+              ["Data", "22 de outubro de 2026"],
               ["Horário", "20h00 (horário de Brasília)"],
               ["Formato", "Ao vivo e 100% on-line"],
               ["Investimento", "R$ 47,00"],
@@ -292,7 +292,7 @@ function Index() {
         <div className="mx-auto max-w-3xl">
           <p className="text-[0.7rem] uppercase tracking-[0.35em] text-gold">Vagas limitadas!</p>
           <h2 className="mt-8 font-serif text-3xl leading-snug text-cream sm:text-5xl">
-            O seu casamento começa a mudar na noite de 24 de setembro.
+            O seu casamento começa a mudar na noite de 22 de outubro.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-cream/70 sm:text-lg">
             São poucas vagas para o encontro ao vivo, por R$ 47,00. Depois que as inscrições
@@ -301,9 +301,9 @@ function Index() {
           <Cta className="mt-10 w-full max-w-xl">
             Clique aqui e vamos iniciar a organização do seu sonho!
           </Cta>
-          <CountdownTimer targetDate="2026-09-24T20:00:00-03:00" />
+          <CountdownTimer targetDate="2026-10-22T20:00:00-03:00" />
           <p className="mt-4 text-[0.7rem] uppercase tracking-[0.25em] text-sand">
-            24 · 09 · 26 — 20h — Ao vivo e on-line
+            22 · 10 · 26 — 20h — Ao vivo e on-line
           </p>
         </div>
       </section>
