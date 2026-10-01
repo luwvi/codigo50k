@@ -14,13 +14,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aprenda a organizar um casamento elegante e sofisticado com até 50k. Encontro on-line ao vivo em 24/09/26, às 20h. Vagas limitadas por R$ 47,00.",
+          "Aprenda a organizar um casamento elegante e sofisticado com até 50k. Encontro on-line ao vivo em 22/10/26, às 20h. Vagas limitadas por R$ 47,00.",
       },
       { property: "og:title", content: "Código do Casamento / Caroline Frey" },
       {
         property: "og:description",
         content:
-          "Encontro on-line ao vivo com Caroline Frey em 24/09/26, às 20h. Organize seu casamento com elegância e até 50k.",
+          "Encontro on-line ao vivo com Caroline Frey em 22/10/26, às 20h. Organize seu casamento com elegância e até 50k.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
